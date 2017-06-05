@@ -1,0 +1,98 @@
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">Detalle de Usuario {{user.id}}</h4>
+    </div>
+    <div class="modal-body">
+        <p><strong>Detalle de Usuario {{user.firstName}} {{user.lastName}}</strong> 
+       </p>
+        
+        
+        <div class="row">
+        <div class="col-lg-12">
+
+            <div class="tabs-container">
+
+                <tabset>
+                    
+                    <tab>
+                        <tab-heading>
+                            Informaci&oacute;n de Usuario
+                        </tab-heading>
+
+            <div class="ibox seller-detail">
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <fieldset class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nombre:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Nombre de Usuario" ng-model="user.firstName">
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Apellido:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Apellido de Usuario" ng-model="user.lastName">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Email:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Email de Usuario" ng-model="user.email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Usuario:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Usuario de Sistema" ng-model="user.login">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Password:</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" placeholder="Clave de Usuario" ng-model="user.password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Rol:</label>
+                                    <div class="col-sm-10">
+                                        <ui-select ng-model="role" 
+                                                        theme="bootstrap" on-select="onSelectedRole($item)">
+                                                <ui-select-match placeholder="Seleccione">{{user.userRole.name}}</ui-select-match>
+                                                <ui-select-choices repeat="iRole in roleList | filter: $select.search">
+                                                                {{iRole.name}}
+                                                </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+
+                                    
+                            </fieldset>
+                    </div>
+                    
+
+                    </div>
+
+                    
+
+                    
+
+                </div>
+                </tab>
+                
+                
+                </tabset>
+                </div>
+        </div>
+    </div>
+        
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="updateUser(user)"> Actualizar</button>
+        <button type="button" class="btn btn-white" ng-click="cancel()">Cerrar</button>
+    </div>
+
+</div>
+

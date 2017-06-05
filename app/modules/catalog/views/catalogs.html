@@ -1,0 +1,55 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Mansuera - Cat&aacute;logos</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+            <li>
+                <a>Cat&aacute;ogos</a>
+            </li>
+            <li class="active">
+                <strong>Listado de Cat&aacute;logos</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight" >
+    <div ng-controller="catalogCtrl">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><strong>Listado de Cat&aacute;logos</strong></h5>
+                        <!--<div ibox-tools></div>-->
+                    </div>
+                    <div class="ibox-content">
+                        <table class="footable table table-stripped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Descripci&oacute;n</th>
+                                    <th>Editar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="cat in catalogs">
+                                    <td>{{ cat.id}}</td>
+                                    <td>{{ cat.name }}</td>
+                                    <td>{{ cat.description }}</td>
+                                    <td>
+                                        <button class="btn btn-primary" ng-click="openCatalog('lg',cat)"><i class="fa fa-search"></i> </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

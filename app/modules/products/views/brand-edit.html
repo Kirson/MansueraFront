@@ -1,0 +1,126 @@
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">Detalle de Marca {{brand.id}}</h4>
+    </div>
+    <div class="modal-body">
+        <p><strong>Detalle de Marca {{brand.name}}</strong> 
+       </p>
+        <div class="row">
+            <div class="col-lg-12">
+
+            <div class="tabs-container">
+
+                <tabset>
+                    
+                    <tab>
+                        <tab-heading>
+                            Informaci&oacute;n de Marca
+                        </tab-heading>
+
+            <div class="ibox seller-detail">
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <fieldset class="form-horizontal">
+                                <div class="form-group"><label class="col-sm-2 control-label">Id:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Id de Marca" ng-model="brand.id" ng-disabled=true ></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Nombre:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nombre de Marca" ng-model="brand.name"></div>
+                                </div>
+                                
+                                <div class="form-group"><label class="col-sm-2 control-label">Nem&oacute;nico</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nem&oacute;nico" ng-model="brand.nemonic"></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label" >Descripci&oacute;n:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Descripci&oacute;n" ng-model="brand.description"></div>
+                                </div>
+                                
+                                   
+                            </fieldset>
+                    </div>
+                    
+
+                    </div>
+
+                    
+
+                    
+
+                </div>
+                </tab>
+                <tab>
+                    <tab-heading>
+                            Informaci&oacute;n de Modelos de Marcas
+                    </tab-heading>
+                    <div class="ibox seller-detail">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <table  class="footable table table-stripped" >
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre de modelo</th>
+                                            <th>Nem&oacute;nico</th>
+                                            <th>Descripci&oacute;n</th>
+                                            <th>Acci&oacute;n</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="model in brandModels" 
+                                            ng-include="getTemplate(model)">
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <script type="text/ng-template" id="display">
+                                    <td>{{ model.modelName }}</td>
+                                    <td>{{ model.nemonic }}</td>
+                                    <td>{{ model.description }}</td>
+                                    <td>
+                                        <button ng-click="editModel(model)">Editar</button>
+                                        <button ng-click="removeModel($index)">Eliminar</button>
+                                    </td>
+                                </script>
+                                <script type="text/ng-template" id="edit">
+                                    <td><input type="text" ng-model="modelSelected.modelName" /></td>
+                                    <td><input type="text" ng-model="modelSelected.nemonic" /></td>
+                                    <td><input type="text" ng-model="modelSelected.description" /></td>
+                                    <td>
+                                        <button ng-click="saveModel($index)">Actualizar</button>
+                                        <button ng-click="reset()">Cancelar</button>
+                                    </td>
+                                </script>
+
+                                <button type="button" class="btn btn-primary" ng-click="addModel()"> Nuevo Modelo</button>
+                                <div ng-show="showAddModel">
+                                  
+                                        <fieldset class="form-horizontal">
+                                            <div class="form-group"><label class="col-sm-2 control-label">Nombre:</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nombre de Modelo" ng-model="newModel.modelName"></div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Nem&oacute;nico:</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nem&oacute;nico" ng-model="newModel.nemonic"></div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Descripci&oacute;n:</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Descripci&oacute;n" ng-model="newModel.description" ></div>
+                                        </fieldset>
+                                        <button type="button" class="btn btn-primary" ng-click="addNewModel()"> Agregar Modelo</button>
+                                         <button type="button" class="btn btn-primary" ng-click="cancelNewModel()"> Cancelar</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </tab>
+                
+                </tabset>
+                </div>
+        </div>
+    </div>
+        
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="updateBrand(brand)"> Actualizar</button>
+        <button type="button" class="btn btn-white" ng-click="cancel()">Cerrar</button>
+    </div>
+
+</div>
+

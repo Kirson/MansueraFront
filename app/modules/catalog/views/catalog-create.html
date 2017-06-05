@@ -1,0 +1,121 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Creaci&oacute;n de Cat&aacute;logos</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+            <li>
+                <a>Cat&aacute;logos</a>
+            </li>
+            <li class="active">
+                <strong>Cat&aacute;logos</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+    <div ng-controller="catalogCreateCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="tabs-container">
+
+                <tabset>
+				    
+                    <tab>
+                        <tab-heading>
+                            Informaci&oacute;n de Cat&aacute;logo
+                        </tab-heading>
+                        <div class="panel-body">
+
+                            <fieldset class="form-horizontal">
+                                <div class="form-group"><label class="col-sm-2 control-label">Nombre:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nombre de Cat&aacute;logo" ng-model="cat.name"></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Nem&oacute;nico:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nem&oacute;nico" ng-model="cat.nemonic"></div>
+                                </div>
+                                 <div class="form-group"><label class="col-sm-2 control-label">Descripci&oacute;n:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Descripci&oacute;n" ng-model="cat.description"></div>
+                                </div>
+                                
+                            </fieldset>
+
+                        </div>
+                    </tab>
+                    <tab>
+                        <tab-heading>
+                            Subvalores de Cat&aacute;logo
+                        </tab-heading>
+                        <div class="panel-body">
+                            <div class="ibox catalog-detail">
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <table  class="footable table table-stripped" >
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Nem&oacute;nico</th>
+                                                    <th>Descripci&oacute;n</th>
+                                                    <th>Acci&oacute;n</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="catalog in catalogDetails" 
+                                                    ng-include="getTemplate(catalog)">
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <script type="text/ng-template" id="display">
+                                            <td>{{ catalog.name }}</td>
+                                            <td>{{ catalog.nemonic }}</td>
+                                            <td>{{ catalog.description }}</td>
+                                            <td>
+                                                <button ng-click="editDetail(catalog)">Editar</button>
+                                                <button ng-click="removeDetail($index)">Eliminar</button>
+                                            </td>
+                                        </script>
+                                        <script type="text/ng-template" id="edit">
+                                            <td><input type="text" ng-model="catalogSelected.name" /></td>
+                                            <td><input type="text" ng-model="catalogSelected.nemonic" /></td>
+                                            <td><input type="text" ng-model="catalogSelected.description" /></td>
+                                            <td>
+                                                <button ng-click="saveDetail($index)">Actualizar</button>
+                                                <button ng-click="reset()">Cancelar</button>
+                                            </td>
+                                        </script>
+
+                                        <button type="button" class="btn btn-primary" ng-click="addDetail()"> Nuevo Detalle</button>
+                                        <div ng-show="showAddDetail">
+                              
+                                            <fieldset class="form-horizontal">
+                                                <div class="form-group"><label class="col-sm-2 control-label">Nombre:</label>
+                                                <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nombre de Cat&aacute;logo" ng-model="newCatalog.name"></div>
+                                                <div class="form-group"><label class="col-sm-2 control-label">Nem&oacute;nico:</label>
+                                                <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nem&oacute;nico" ng-model="newCatalog.nemonic"></div>
+                                                <div class="form-group"><label class="col-sm-2 control-label">Descripci&oacute;n:</label>
+                                                <div class="col-sm-10"><input type="text" class="form-control" placeholder="Descripci&oacute;n" ng-model="newCatalog.description"></div>
+                                            </fieldset>
+                                            <button type="button" class="btn btn-primary" ng-click="addNewDetail()"> Agregar Detalle</button>
+                                            <button type="button" class="btn btn-primary" ng-click="cancelNewDetail()"> Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                    
+                    
+                    
+                </tabset>
+                    <button type="button" class="btn btn-primary" ng-click="saveCatalog()"> Guardar</button>
+            </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>

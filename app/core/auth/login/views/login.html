@@ -1,0 +1,23 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div ng-controller="loginCtrl">
+        <div>
+            
+            <a href=""><img alt="image" class="img-circle" src="img/logoMansuera.png"></a>
+        </div>
+        <h3>Bienvenido a Mansuera</h3>
+        <p>Administración
+        </p>
+        <p>Por favor ingrese sus datos</p>
+        <form class="m-t" role="form" action="#" >
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Usuario " required="true" ng-model="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Clave" required="true" ng-model="password">
+            </div>
+            <button type="submit" class="btn btn-primary block full-width m-b" ng-click="login()">Enviar</button>
+		
+        </form>
+		
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Mansuera - Marcas</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+            <li>
+                <a>Marcas</a>
+            </li>
+            <li class="active">
+                <strong>Listado de Marcas</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="brandCtrl">
+
+
+<div class="row">
+<div class="col-lg-12">
+<div class="ibox float-e-margins">
+<div class="ibox-title">
+    <h5><strong>Listado de Marcas</strong></h5>
+
+    <div ibox-tools></div>
+</div>
+<div class="ibox-content">
+    <div class="row">
+        <!--    
+        <button class="btn btn-primary" ng-csv="getArrayBrands" 
+                csv-header="['id', 'nombre', 'emailContacto','nombreContacto','apellidoContacto',
+                'telefono','provincia','canton','direccion']"
+                filename="exportBrands.csv" field-separator=";" decimal-separator="," add-bom="true">
+                                <i class="fa fa-file">Exportar Tabla</i>
+        </button>
+        -->
+    </div>
+</div>
+<div class="ibox-content">
+    <input type="text" class="form-control input-sm m-b-xs" id="filter"
+                           placeholder="Buscar en tabla">
+    <table class="footable table table-stripped" data-page-size="20" data-filter=#filter>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Nemonico</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="brand in brands">
+            <td>{{ brand.id}}</td>
+            <td>{{ brand.name }}</td>
+            <td>{{ brand.nemonic }}</td>
+            <td>{{ brand.nemonic }}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="openBrand('lg',brand)"><i class="fa fa-search"></i></button>
+            </td>
+            <td>
+                <button class="btn btn-primary" ng-click="deleteBrand('lg',brand)"><i class="fa fa-trash"></i></button>
+            </td>
+           
+        </tr>
+        </tbody>
+        <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <ul class="pagination pull-right"></ul>
+                            </td>
+                        </tr>
+            </tfoot>
+    </table>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>

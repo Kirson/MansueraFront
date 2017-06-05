@@ -1,0 +1,123 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Creaci&oacute;n de Marcas</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+            <li>
+                <a>Marcas</a>
+            </li>
+            <li class="active">
+                <strong>Marcas</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+    <div ng-controller="brandCreateCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="tabs-container">
+
+                <tabset>
+				    
+                    <tab>
+                        <tab-heading>
+                            Informaci&oacute;n de Marca
+                        </tab-heading>
+                        <div class="panel-body">
+
+                            <fieldset class="form-horizontal">
+                                <div class="form-group"><label class="col-sm-2 control-label">Nombre:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nombre de Marca" ng-model="brand.name"></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Nemonico:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nemonico" ng-model="brand.nemonic"></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Descripci&oacute;n:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Descripci&oacute;n" ng-model="brand.description"></div>
+                                </div>
+                                
+                                    
+                            </fieldset>
+
+                        </div>
+                    </tab>
+                    <tab>
+                        <tab-heading>
+                            Modelos de Marca
+                        </tab-heading>
+                             <div class="ibox seller-detail">
+                        <div class="ibox-content">
+                        <div class="row">
+                            <table  class="footable table table-stripped" >
+                                <thead>
+                                    <tr>
+                                        <th>Nombre de Modelo</th>
+                                        <th>Nemonico</th>
+                                        <th>Descripci&oacute;n/th>
+                                        <th>Acci&oacute;n</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="model in brandModels" 
+                                        ng-include="getTemplate(model)">
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <script type="text/ng-template" id="display">
+                                <td>{{ model.modelName }}</td>
+                                <td>{{ model.nemonic }}</td>
+                                <td>{{ model.description }}</td>
+                                <td>
+                                    <button ng-click="editModel(model)">Editar</button>
+                                    <button ng-click="removeModel($index)">Eliminar</button>
+                                </td>
+                            </script>
+                            <script type="text/ng-template" id="edit">
+                                <td><input type="text" ng-model="modelSelected.modelName" /></td>
+                                <td><input type="text" ng-model="modelSelected.nemonic" /></td>
+                                <td><input type="text" ng-model="modelSelected.description" /></td>
+                                <td>
+                                    <button ng-click="saveModel($index)">Actualizar</button>
+                                    <button ng-click="reset()">Cancelar</button>
+                                </td>
+                            </script>
+
+                            <button type="button" class="btn btn-primary" ng-click="addModel()"> Nuevo Modelo</button>
+                            <div ng-show="showAddModel">
+                              
+                                    <fieldset class="form-horizontal">
+                                        <div class="form-group"><label class="col-sm-2 control-label">Nombre:</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nombre de Modelo" ng-model="newModel.modelName"></div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">Nem&oacute;nico:</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nem&oacute;nico" ng-model="newContact.nemonic"></div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">Descripci&oacute;n:</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Descripci&oacute;n" ng-model="newContact.description"></div>
+                                    </fieldset>
+                                    <button type="button" class="btn btn-primary" ng-click="addNewModel()"> Agregar Modelo</button>
+                                     <button type="button" class="btn btn-primary" ng-click="cancelNewModel()"> Cancelar</button>
+                                </div>
+                            </div>
+                    </div>
+
+                    </div>
+
+
+                </tab>
+                 
+                    
+                    
+                </tabset>
+                    <button type="button" class="btn btn-primary" ng-click="saveBrand()"> Guardar</button>
+            </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>

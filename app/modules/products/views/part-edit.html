@@ -1,0 +1,151 @@
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">Detalle de Parte {{part.id}}</h4>
+    </div>
+    <div class="modal-body">
+        <p><strong>Detalle de Parte {{part.code}}</strong> 
+       </p>
+        <div class="row">
+            <div class="col-lg-12">
+
+            <div class="tabs-container">
+
+                <tabset>
+                    
+                    <tab>
+                        <tab-heading>
+                            Informaci&oacute;n de Parte
+                        </tab-heading>
+
+            <div class="ibox seller-detail">
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <fieldset class="form-horizontal">
+                                <div class="form-group"><label class="col-sm-2 control-label">Id:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Id de Parte" ng-model="part.id" ng-disabled=true ></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">C&oacute;digo:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="C&oacute;digo" ng-model="part.code" ng-disabled=true></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Descripci&oacute;n del Sistema:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Descripci&oacute;n del Sistema" ng-model="part.systemDescription"></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">FR:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" placeholder="Descripci&oacute;n" ng-model="part.fr"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Marca:</label>
+                                    <div class="col-sm-10">
+                                        <ui-select ng-model="brand" 
+                                                    theme="bootstrap" on-select="onSelectedBrand($item)">
+                                            <ui-select-match placeholder="Seleccione">{{part.brand.name}}</ui-select-match>
+                                            <ui-select-choices repeat="iBrand in brandList | filter: $select.search">
+                                                                {{iBrand.name}}
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Modelo:</label>
+                                    <div class="col-sm-10">
+                                        <ui-select ng-model="brand" 
+                                                    theme="bootstrap" on-select="onSelectedModel($item)">
+                                            <ui-select-match placeholder="Seleccione">{{part.model.modelName}}</ui-select-match>
+                                            <ui-select-choices repeat="iModel in modelList | filter: $select.search">
+                                                                {{iModel.modelName}}
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Descripci&oacute;n Gen&eacute;rica:</label>
+                                    <div class="col-sm-10">
+                                        <ui-select ng-model="genericDescription" 
+                                                    theme="bootstrap" on-select="onSelectedGenericDescription($item)">
+                                            <ui-select-match placeholder="Seleccione">{{part.genericDescription.name}}</ui-select-match>
+                                            <ui-select-choices repeat="iGenericDescription in genericDescriptionList | filter: $select.search">
+                                                                {{iGenericDescription.name}}
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Categor&iacute;a:</label>
+                                    <div class="col-sm-10">
+                                        <ui-select ng-model="category" 
+                                                    theme="bootstrap" on-select="onSelectedCategory($item)">
+                                            <ui-select-match placeholder="Seleccione">{{part.category.name}}</ui-select-match>
+                                            <ui-select-choices repeat="iCategory in categoryList | filter: $select.search">
+                                                                {{iCategory.name}}
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Observac&oacute;n:</label>
+                                    <div class="col-sm-10">
+                                        <ui-select ng-model="observation" 
+                                                    theme="bootstrap" on-select="onSelectedObservation($item)">
+                                            <ui-select-match placeholder="Seleccione">{{part.observation.name}}</ui-select-match>
+                                            <ui-select-choices repeat="iObservation in observationList | filter: $select.search">
+                                                                {{iObservation.name}}
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">A&ntilde;o Inicio:</label>
+                                    <div class="col-sm-10">
+                                        <ui-select ng-model="startYear" 
+                                                    theme="bootstrap" on-select="onSelectedStartYear($item)">
+                                            <ui-select-match placeholder="Seleccione">{{part.startYear.name}}</ui-select-match>
+                                            <ui-select-choices repeat="iSyear in yearList | filter: $select.search">
+                                                                {{iSyear.name}}
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">A&ntilde;o Fin:</label>
+                                    <div class="col-sm-10">
+                                        <ui-select ng-model="endYear" 
+                                                    theme="bootstrap" on-select="onSelectedEndYear($item)">
+                                            <ui-select-match placeholder="Seleccione">{{part.endYear.name}}</ui-select-match>
+                                            <ui-select-choices repeat="iEyear in yearList | filter: $select.search">
+                                                                {{iEyear.name}}
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                
+                                
+                                   
+                            </fieldset>
+                    </div>
+                    
+
+                    </div>
+
+                    
+
+                    
+
+                </div>
+                </tab>
+               
+                
+                </tabset>
+                </div>
+        </div>
+    </div>
+        
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="updatePart(part)"> Actualizar</button>
+        <button type="button" class="btn btn-white" ng-click="cancel()">Cerrar</button>
+    </div>
+
+</div>
+
